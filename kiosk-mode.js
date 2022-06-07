@@ -85,7 +85,7 @@ class KioskMode {
           if ("hide_sidebar" in conf) this.hideSidebar = conf.hide_sidebar;
           if ("hide_overflow" in conf) this.hideOverflow = conf.hide_overflow;
           if ("hide_account" in conf) this.hideAccount = conf.hide_account;
-          if ("hide_search" in conf) this.hideSearch = conf.hide_Search;
+          if ("hide_search" in conf) this.hideSearch = conf.hide_search;
           if ("hide_menubutton" in conf) this.hideMenuButton = conf.hide_menubutton;
           if ("kiosk" in conf) this.hideHeader = this.hideSidebar = conf.kiosk;
         }
@@ -101,6 +101,7 @@ class KioskMode {
     const appToolbar = huiRoot.querySelector("app-toolbar");
     const appDrawerRoot = drawerLayout.querySelector("app-drawer").querySelector("ha-sidebar").shadowRoot;
     const overflowStyle = "ha-button-menu{display:none !important;}";
+	const searchStyle = "ha-icon-button{display:none !important;}";
     const headerStyle = "#view{min-height:100vh !important;--header-height:0;}app-header{display:none;}";
 
     if (this.hideHeader || this.hideOverflow) {
@@ -134,6 +135,13 @@ class KioskMode {
     } else {
       this.removeStyle(appDrawerRoot);
     }
+	
+	if (this.hideSidebar || this.hideSearch){
+	  this.addStyle("ha-icon-button{display:none !important;}", appToolbar);
+	  if (this.queryString("cache")) this.setCache("kmSearch", "true");
+    /* } else {
+      this.removeStyle(huiRoot); */
+	}
 
     // Resize window to "refresh" view.
     window.dispatchEvent(new Event("resize"));
@@ -174,6 +182,7 @@ class KioskMode {
     this.hideOverflow = config.kiosk || config.hide_overflow;
     this.hideMenuButton = config.kiosk || config.hide_menubutton;
     this.hideAccount = config.kiosk || config.hide_account;
+    this.hideSearch = config.kiosk || config.hide_search;
     this.ignoreEntity = config.ignore_entity_settings;
     this.ignoreMobile = config.ignore_mobile_settings;
   }
