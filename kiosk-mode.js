@@ -139,7 +139,7 @@ class KioskMode {
       this.removeStyle(appDrawerRoot);
     }
 	
-	if (this.hideSidebar || this.hideSearch){
+	if (this.hideSidebar || this.hideSearch || this.hideAssist){
 	  this.addStyle("ha-icon-button{display:none !important;}", appToolbar);
 	  if (this.queryString("cache")) this.setCache("kmSearch", "true");
     /* } else {
