@@ -70,6 +70,7 @@ resources:
 |`hide_overflow:` | Boolean | false | Hides the top right menu.
 |`hide_account:` | Boolean | false | Hides the account icon.
 |`hide_search:` | Boolean | false | Hides the search icon.
+|`hide_assist:` | Boolean | false | Hides the assist icon.
 |`ignore_entity_settings:` | Boolean | false | Useful for [conditional configs](#conditional-lovelace-config) and will cause `entity_settings` to be ignored.
 |`ignore_mobile_settings:` | Boolean | false | Useful for [conditional configs](#conditional-lovelace-config) and will cause `mobile_settings` to be ignored.
 
@@ -189,6 +190,7 @@ The query string options are:
 * `?hide_menubutton` to hide sidebar menu button
 * `?hide_account` to hide the account icon
 * `?hide_search` to hide the search icon
+* `?hide_assist` to hide the assist icon
 
 ## Query String Caching
 
