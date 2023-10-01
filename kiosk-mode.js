@@ -118,7 +118,7 @@ class KioskMode {
     }
 
     if (this.hideSidebar) {
-      this.addStyle(":host{--app-drawer-width:0 !important;}#drawer{display:none;}", drawerLayout);
+      this.addStyle(":host{--ha-drawer-width:0 !important;}#drawer{display:none;}", drawerLayout);
     //   this.addStyle("ha-menu-button{display:none !important;}ha-icon-button{display:none !important;}", appToolbar);
       this.addStyle("ha-menu-button{display:none !important;}ha-icon-button{display:none !important;}", toolbar);
       if (this.queryString("cache")) this.setCache("kmSidebar", "true");
